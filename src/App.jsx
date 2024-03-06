@@ -1,13 +1,16 @@
 import './App.css'
 import { useCatImage } from './hooks/catImage.jsx'
 import { useCatFact } from './hooks/catFact.jsx'
+import JSConfetti from 'js-confetti'
 
 function App() {
   const { fact, refreshCatFact}  = useCatFact()
   const { imageUrl } = useCatImage({ fact })
+  const jsConfetti = new JSConfetti()
   
   const handleClick = async () => {
-    refreshCatFact(); // Add parentheses to call the function
+    refreshCatFact(); 
+    jsConfetti.addConfetti()
   }
   
 
